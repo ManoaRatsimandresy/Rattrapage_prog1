@@ -1,4 +1,4 @@
-function getMostPopularPlaces(...places) {
+export function GetMostPopularPlaces(...places) {
     const counts = {};
 
     places.forEach(place => {
