@@ -1,14 +1,21 @@
 import { expect } from "chai";
 import { describe } from "mocha";
-import {removeWords} from "./removeWords.js";
+import {removeWords} from "./removeWords"
 
- describe ("removeWords",function () {
-    it(" Hello, ceci est un test ", function() {
-        expect(removeWords(" Hello ceci est un test ",['ceci' , 'un'])).to.eq("Hello est test")
+describe('removeWords', () => {
+    it('should remove specified words from the string', () => {
+        const result = removeWords('Hello, ceci est un test', ['ceci', 'un']);
+        expect(result).to.equal('Hello, est test');
     });
- })
- describe ("removeWords",function () {
-    it(" Hello Java ", function() {
-        expect(removeWords(" Hello Java",[ 'java'])).to.eq("Hello Java")
+
+    it('should not remove words with different case', () => {
+        const result = removeWords('Hello Java', ['java']);
+        expect(result).to.equal('Hello Java');
     });
- })
+
+    it('should return the original string if no same words ', () => {
+        const result = removeWords('Hello Java', ['un']);
+        expect(result).to.equal('Hello Java');
+    });
+
+});
